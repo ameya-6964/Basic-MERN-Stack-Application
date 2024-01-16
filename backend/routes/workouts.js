@@ -24,7 +24,7 @@ router.delete("/:id", (req, res) => {
 
 // @route PUT /api/workouts/:id => Update A Workout
 router.patch("/:id", (req, res) => {
-  res.json({ message: "POST A NEW WORKOUT" });
+  res.json({ message: "UPDATE A NEW WORKOUT" });
 });
 
 module.exports = router;
