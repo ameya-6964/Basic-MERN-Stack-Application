@@ -1,6 +1,7 @@
 const express = require("express");
 
 const app = express();
+const workerRoutes = require("./routes/workouts");
 const port = process.env.PORT || 4000;
 
 //! Logger Middleware
@@ -9,9 +10,8 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome To The App" });
-});
+//! Routes
+app.use("/api/workouts", workerRoutes);
 
 app.listen(port, () => {
   console.log(`Listening On Port ${port}`);
