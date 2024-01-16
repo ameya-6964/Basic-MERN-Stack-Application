@@ -5,10 +5,11 @@ import WorkoutDetails from "../components/WorkoutDetails";
 
 const Home = () => {
   const [workouts, setWorkouts] = useState(null);
+  const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("http://localhost:4000/api/workouts");
+      const response = await fetch(`${BASE_URL}/api/workouts`);
       const json = await response.json();
       console.log(json);
 
