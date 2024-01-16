@@ -23,11 +23,10 @@ mongoose
   .connect(connectionString)
   .then(() => {
     console.log("Connected to MongoDB Database!");
+    app.listen(port, () => {
+      console.log(`Listening On Port ${port}`);
+    });
   })
   .catch((err) => {
     console.error("Error connecting to Mongo", err);
   });
-
-app.listen(port, () => {
-  console.log(`Listening On Port ${port}`);
-});
