@@ -19,7 +19,7 @@ const Home = () => {
     };
 
     fetchWorkouts();
-  }, []);
+  }, [BASE_URL]);
 
   return (
     <div className="home">
