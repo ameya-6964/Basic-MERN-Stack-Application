@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext.jsx";
 
 // components
 import WorkoutDetails from "../components/WorkoutDetails";
 import WorkoutForm from "../components/WorkoutForm";
 
 const Home = () => {
-  const [workouts, setWorkouts] = useState(null);
+  const { workouts, dispatch } = useWorkoutsContext();
   const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
@@ -15,12 +16,12 @@ const Home = () => {
       console.log(json);
 
       if (response.ok) {
-        setWorkouts(json);
+        dispatch({ type: "SET_WORKOUTS", payload: json });
       }
     };
 
     fetchWorkouts();
-  }, [BASE_URL]);
+  }, [dispatch, BASE_URL]);
 
   return (
     <div className="home">
