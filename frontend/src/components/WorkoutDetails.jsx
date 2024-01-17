@@ -1,4 +1,6 @@
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
+// date fns
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
 const WorkoutDetails = ({ workout }) => {
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -26,7 +28,9 @@ const WorkoutDetails = ({ workout }) => {
         <strong>Number of reps: </strong>
         {workout.reps}
       </p>
-      <p>{workout.createdAt}</p>
+      <p>
+        {formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}
+      </p>
       <span className="material-symbols-outlined" onClick={handleClick}>
         delete
       </span>
