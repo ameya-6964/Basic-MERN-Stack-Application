@@ -5,6 +5,7 @@ require("dotenv").config();
 
 const app = express();
 const workerRoutes = require("./routes/workouts");
+const userRoutes = require("./routes/user");
 const port = process.env.PORT || 4000;
 let connectionString;
 
@@ -25,6 +26,7 @@ app.use((req, res, next) => {
 
 //! Routes
 app.use("/api/workouts", workerRoutes);
+app.use("/api/user", userRoutes);
 
 //Connect To DB
 mongoose
