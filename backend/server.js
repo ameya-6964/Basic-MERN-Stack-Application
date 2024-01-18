@@ -6,7 +6,13 @@ require("dotenv").config();
 const app = express();
 const workerRoutes = require("./routes/workouts");
 const port = process.env.PORT || 4000;
-const connectionString = process.env.MONGO_LOCAL_URI;
+let connectionString;
+
+if (process.env.NODE_ENV === "DEVELOPMENT") {
+  connectionString = process.env.MONGO_LOCAL_URI;
+} else {
+  connectionString = process.env.MONGO_URI;
+}
 
 //! Logger Middleware
 app.use(express.json());
@@ -20,13 +26,13 @@ app.use((req, res, next) => {
 //! Routes
 app.use("/api/workouts", workerRoutes);
 
-//Connext To DB
+//Connect To DB
 mongoose
   .connect(connectionString)
   .then(() => {
     console.log("Connected to MongoDB Database!");
     app.listen(port, () => {
-      console.log(`Listening On Port ${port}`);
+      console.log(`Listening On Port ${port} in ${process.env.NODE_ENV} Mode`);
     });
   })
   .catch((err) => {
