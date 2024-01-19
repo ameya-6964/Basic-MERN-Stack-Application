@@ -31,6 +31,10 @@ const Login = () => {
 
       <button disabled={isLoading}>Log in</button>
       {error && <div className="error">{error}</div>}
+      <div className="dummy-data">
+        <h3>Test Email :- test@test.com</h3>
+        <h3>Test Password :- Abcabc123@test</h3>
+      </div>
     </form>
   );
 };

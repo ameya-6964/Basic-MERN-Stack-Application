@@ -176,3 +176,10 @@ form.login {
   background: #fff;
   border-radius: 4px;
 }
+
+.dummy-data {
+  border: 1px solid black;
+  padding: 2rem;
+  margin-top: 2rem;
+  border-radius: 2rem;
+}
