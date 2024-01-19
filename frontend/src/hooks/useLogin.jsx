@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
+  const navigate = useNavigate();
   const BASE_URL = import.meta.env.VITE_BASE_URL;
 
   const login = async (email, password) => {
@@ -28,6 +30,9 @@ export const useLogin = () => {
 
       // update the auth context
       dispatch({ type: "LOGIN", payload: json });
+
+      //Navigate
+      navigate("/");
 
       // update loading state
       setIsLoading(false);
