@@ -120,6 +120,36 @@ nav button {
   cursor: pointer;
   font-size: 1em;
 }
+
+.anchors {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 20px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 2rem;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.flex > button {
+  background: #fff;
+  border: 2px solid var(--primary);
+  padding: 6px 20px;
+  border-radius: 4px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+}
+
 /* auth forms */
 form.signup,
 form.login {
